@@ -37,3 +37,13 @@ variable "location" {
   description = "location where to deploy resources to"
   type        = string
 }
+
+variable "inst_key" {
+  description = "The instrumentation key"
+  type        = string
+}
+
+variable "conn_str" {
+  description = "The Connection String"
+  type        = string
+}
