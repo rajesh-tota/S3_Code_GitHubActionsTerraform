@@ -62,7 +62,12 @@ resource "azurerm_application_insights" "appi" {
 
 resource "null_resource" "link_monitoring" {
   provisioner "local-exec" {
-      environment {
+    command = <<EOT
+      # Login to Azure CLI (Linux operating system assumed)
+      az login --service-principal -u $con_client_id -p $con_client_secret --tenant $con_tenant_id
+      # TODO your scripting code
+    EOT
+      environment = {
       con_client_id     = var.client_id
       con_client_secret = var.client_secret
       con_tenant_id     = var.tenant_id    
