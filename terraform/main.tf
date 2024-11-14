@@ -43,7 +43,7 @@ resource "azurerm_app_service" "website" {
     linux_fx_version = "NODE|22-lts"
     scm_type         = "LocalGit"
   }
- app_settings = {
+  app_settings = {
     # Application Insights configuration
     APPINSIGHTS_INSTRUMENTATIONKEY          = var.inst_key
     APPLICATIONINSIGHTS_CONNECTION_STRING   = var.conn_str
