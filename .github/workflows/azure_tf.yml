@@ -25,6 +25,8 @@ env:
   TF_VAR_web_app_name: ${{ secrets.WEBAPP }}
   TF_VAR_app_service_plan_name: ${{ secrets.ASP }}
   TF_VAR_location: ${{ secrets.LOC }}
+  TF_VAR_inst_key: ${{ secrets.AZURE_INT_KEY }}
+  TF_VAR_conn_str: ${{ secrets.AZURE_CON_STR }}
 
 jobs:
   terraformprepare:
