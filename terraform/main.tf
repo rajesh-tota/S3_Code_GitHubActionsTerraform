@@ -45,8 +45,8 @@ resource "azurerm_app_service" "website" {
   }
   app_settings = {
     # Application Insights configuration
-    APPINSIGHTS_INSTRUMENTATIONKEY          = var.inst_key
-    APPLICATIONINSIGHTS_CONNECTION_STRING   = var.conn_str
+    APPINSIGHTS_INSTRUMENTATIONKEY             = var.inst_key
+    APPLICATIONINSIGHTS_CONNECTION_STRING      = var.conn_str
     ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
   }
 }
