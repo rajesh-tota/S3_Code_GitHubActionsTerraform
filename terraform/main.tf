@@ -73,7 +73,7 @@ resource "null_resource" "link_monitoring" {
       con_tenant_id     = var.tenant_id
       // Parameters needed for linking
       inst_key     = var.inst_key
-      conn_str     = var.conn_str      
+      conn_str     = var.conn_str
       rg_name      = var.rg_name
       web_app_name = var.web_app_name
     }
