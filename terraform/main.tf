@@ -43,6 +43,11 @@ resource "azurerm_app_service" "website" {
     linux_fx_version = "NODE|22-lts"
     scm_type         = "LocalGit"
   }
+  app_settings = {
+  APPINSIGHTS_INSTRUMENTATIONKEY          = var.inst_key
+  APPLICATIONINSIGHTS_CONNECTION_STRING   = var.conn_str
+  ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
+  }
 }
 resource "azurerm_log_analytics_workspace" "log" {
   name                = "tota0610-lg-analytics"
