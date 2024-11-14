@@ -65,9 +65,7 @@ resource "null_resource" "link_monitoring" {
       environment = {
       con_client_id     = var.client_id
       con_client_secret = var.client_secret
-      con_tenant_id     = var.tenant_id
-      inst_key          = azurerm_application_insights.appi.instrumentation_key
-      conn_str          = azurerm_application_insights.appi.connection_string      
+      con_tenant_id     = var.tenant_id    
       rg_name           = var.rg_name
       web_app_name      = var.web_app_name
     }
