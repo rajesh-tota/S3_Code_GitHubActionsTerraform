@@ -62,7 +62,7 @@ resource "azurerm_application_insights" "appi" {
 
 resource "null_resource" "link_monitoring" {
   provisioner "local-exec" {
-      environment = {
+      environment {
       con_client_id     = var.client_id
       con_client_secret = var.client_secret
       con_tenant_id     = var.tenant_id    
