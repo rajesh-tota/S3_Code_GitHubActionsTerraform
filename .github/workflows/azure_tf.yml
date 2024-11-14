@@ -60,7 +60,7 @@ jobs:
     # file requires this workaround so far.
     - name: Terraform fmt
       id: fmt
-      run: terraform fmt -check
+      run: terraform fmt -check -diff
       #continue-on-error: true
 
     - name: Terraform Plan
