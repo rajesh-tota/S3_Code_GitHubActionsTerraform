@@ -39,11 +39,11 @@ variable "location" {
 }
 
 variable "inst_key" {
-  description = "The instrumentation key"
+  description = "Application Insights instrumentation key"
   type        = string
 }
 
 variable "conn_str" {
-  description = "The Connection String"
+  description = "Application Insights connection string"
   type        = string
 }
