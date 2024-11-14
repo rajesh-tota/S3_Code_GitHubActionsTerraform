@@ -79,3 +79,13 @@ resource "null_resource" "link_monitoring" {
     }
   }
 }
+
+resource "azurerm_dashboard" "my-board" {
+  name                = "tota-dashboard"
+  resource_group_name = data.azurerm_resource_group.wsdevops.name
+  location            = data.azurerm_resource_group.wsdevops.location
+  tags = {
+    source = "terraform"
+  }
+  dashboard_properties = data.template_file.dash-template.rendered
+}
