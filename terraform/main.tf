@@ -17,13 +17,10 @@ terraform {
 provider "azurerm" {
   features {}
 }
-
-# Get resource group
+#Get resource group
 data "azurerm_resource_group" "wsdevops" {
   name = var.rg_name
 }
-
-# App Service Plan
 resource "azurerm_app_service_plan" "sp1" {
   name                = var.app_service_plan_name
   location            = var.location
@@ -36,8 +33,6 @@ resource "azurerm_app_service_plan" "sp1" {
     size = "S1"
   }
 }
-
-# Web App
 resource "azurerm_app_service" "website" {
   name                = var.web_app_name
   location            = var.location
@@ -46,18 +41,9 @@ resource "azurerm_app_service" "website" {
 
   site_config {
     linux_fx_version = "NODE|22-lts"
-  }
-
-  app_settings = {
-    APPINSIGHTS_INSTRUMENTATIONKEY          = azurerm_application_insights.appi.instrumentation_key
-    APPINSIGHTS_PROFILERFEATURE_VERSION     = "1.0.0"
-    APPINSIGHTS_SNAPSHOTFEATURE_VERSION     = "1.0.0"
-    APPLICATIONINSIGHTS_CONNECTION_STRING   = azurerm_application_insights.appi.connection_string
-    ApplicationInsightsAgent_EXTENSION_VERSION = "~3"
+    scm_type         = "LocalGit"
   }
 }
-
-# Log Analytics Workspace
 resource "azurerm_log_analytics_workspace" "log" {
   name                = "tota0610-lg-analytics"
   location            = data.azurerm_resource_group.wsdevops.location
@@ -65,8 +51,6 @@ resource "azurerm_log_analytics_workspace" "log" {
   sku                 = "PerGB2018"
   retention_in_days   = 30
 }
-
-# Application Insights
 resource "azurerm_application_insights" "appi" {
   name                = "totanov-api"
   location            = data.azurerm_resource_group.wsdevops.location
