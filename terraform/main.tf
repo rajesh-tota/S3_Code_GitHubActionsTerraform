@@ -43,7 +43,7 @@ resource "azurerm_app_service" "website" {
     linux_fx_version = "NODE|22-lts"
     scm_type         = "LocalGit"
   }
- }
+}
 resource "azurerm_log_analytics_workspace" "log" {
   name                = "tota0610-lg-analytics"
   location            = data.azurerm_resource_group.wsdevops.location
@@ -72,10 +72,10 @@ resource "null_resource" "link_monitoring" {
       con_client_secret = var.client_secret
       con_tenant_id     = var.tenant_id
       // Parameters needed for linking
-      inst_key          = azurerm_application_insights.appi.instrumentation_key
-      conn_str          = azurerm_application_insights.appi.connection_string      
-      rg_name           = var.rg_name
-      web_app_name      = var.web_app_name
+      inst_key     = azurerm_application_insights.appi.instrumentation_key
+      conn_str     = azurerm_application_insights.appi.connection_string      
+      rg_name      = var.rg_name
+      web_app_name = var.web_app_name
     }
   }
 }
